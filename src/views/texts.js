@@ -17,7 +17,7 @@ var Texts=React.createClass({
 	,onData:function(texts) {
 		var id=this.props.id;
 		this.setState({texts:texts.filter(function(text){
-				return text.panel===id;
+				return text.column===id;
 			})
 		});
 	}

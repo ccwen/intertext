@@ -12,12 +12,16 @@ var SearchBox=require("./searchbox");
 var actions_texts=require("../actions/texts");
 var MainMenu=React.createClass({
 	addText:function() {
-		actions_texts.add({panel:"left",title:"abc",key:"t1",content:"xxx"});
+	}
+	,componentDidMount:function() {
+		actions_texts.add({column:"left",title:"abc",key:"t2",content:"xxx"});
+		actions_texts.add({column:"right",title:"xyz",key:"t1",content:"yyy"});
+
 	}
 	,render:function() {
-		return <div inverse>
+		return <div>
 			<Col md={10}>
-			<BreadcrumbTOC toc={tocdata} theme={theme}/>
+			InterText <BreadcrumbTOC toc={tocdata} theme={theme}/>
 			<Button onClick={this.addText}>Open</Button>
 			</Col>
 			<Col md={2} pullRight>

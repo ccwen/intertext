@@ -10,7 +10,7 @@ var Col=require("react-bootstrap").Col;
 //var BreadcrumbTOC=require("ksana2015-breadcrumbtoc");
 //var theme=require("ksana2015-breadcrumbtoc/theme_bootstrap");
 
-var testdata=require("./testdata");
+//var testdata=require("./testdata");
 var maincomponent = React.createClass({
   getInitialState:function() {
     return {};
