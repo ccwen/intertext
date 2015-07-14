@@ -14,8 +14,10 @@ var MainMenu=React.createClass({
 	addText:function() {
 	}
 	,componentDidMount:function() {
-		actions_texts.add({column:"left",title:"abc",key:"t2",content:"xxx"});
-		actions_texts.add({column:"right",title:"xyz",key:"t1",content:"yyy"});
+		actions_texts.add({column:"left",title:"t1",id:"t1",content:"xxx"});
+		actions_texts.add({column:"right",title:"t2",id:"t2",content:"yyy"});
+		actions_texts.add({column:"left",title:"t3",id:"t3",content:"xxx"});
+		actions_texts.add({column:"right",title:"t4",id:"t4",content:"yyy"});
 
 	}
 	,render:function() {

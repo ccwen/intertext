@@ -1,11 +1,12 @@
 var React=require("react/addons");
 var E=React.createElement;
+var update=React.addons.update;
+
 var Reflux=require("reflux");
 var store=require("../stores/texts");
 var PT=React.PropTypes;
 var TextPanel=require("./textpanel");
 var PanelGroup=require("react-bootstrap").PanelGroup;
-
 var Texts=React.createClass({
 	mixins:[Reflux.listenTo(store,"onData")]
 	,getInitialState:function() {
@@ -22,7 +23,7 @@ var Texts=React.createClass({
 		});
 	}
 	,renderItem:function(item,idx){
-		return E(TextPanel,item);
+		return E(TextPanel,update(item,{key:{$set:idx}}));
 	}
 	,render:function() {
 		return E(PanelGroup,null,this.state.texts.map(this.renderItem));

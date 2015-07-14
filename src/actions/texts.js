@@ -1,1 +1,1 @@
-module.exports=require("reflux").createActions(["add","remove","replace"]);
+module.exports=require("reflux").createActions(["add","remove","replace","swap","moveup","movedown"]);

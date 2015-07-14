@@ -6,6 +6,7 @@ var DropdownButton=reactbs.DropdownButton;
 var MenuItem=reactbs.MenuItem;
 var Glyphicon=reactbs.Glyphicon;
 var Button=reactbs.Button;
+var action=require("../actions/texts");
 
 var TextPanelHeader=React.createClass({
 	mixins:[React.addons.PureRender]
@@ -16,17 +17,20 @@ var TextPanelHeader=React.createClass({
 		var r=this.otherside();
 		return r[0].toUpperCase()+r.substr(1);
 	}
+	,onMenuSelect:function(e) {
+		action[e](this.props.id);
+	}
 	,render:function(){
 		return <div>
 		{this.props.children}
 
 		<span className="pull-right">
-		<DropdownButton pullRight bsStyle='link' title={E(Glyphicon,{glyph:'option-horizontal'})} noCaret>
-      <MenuItem eventKey='1'><Glyphicon glyph="arrow-up"/>Move Up</MenuItem>
-      <MenuItem eventKey='2'><Glyphicon glyph={"arrow-"+this.otherside()}/>Move {this.Otherside()}</MenuItem>
-      <MenuItem eventKey='3'><Glyphicon glyph="arrow-down"/>Move Down</MenuItem>
-      <MenuItem divider />
-      <MenuItem eventKey='4'>Separated link</MenuItem>
+		<DropdownButton onSelect={this.onMenuSelect} pullRight bsStyle='link' title={E(Glyphicon,{glyph:'option-horizontal'})} noCaret>
+      <MenuItem key="1" eventKey='moveup'><Glyphicon glyph="arrow-up"/>Move Up</MenuItem>
+      <MenuItem key="2" eventKey='swap'><Glyphicon glyph={"arrow-"+this.otherside()}/>Move {this.Otherside()}</MenuItem>
+      <MenuItem key="3" eventKey='movedown'><Glyphicon glyph="arrow-down"/>Move Down</MenuItem>
+      <MenuItem key="4" divider />
+      <MenuItem key="5" eventKey='4'>Separated link</MenuItem>
     </DropdownButton>
 		<Button bsStyle='link'>{E(Glyphicon,{glyph:'remove'})}</Button>
 		</span>

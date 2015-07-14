@@ -13,10 +13,10 @@ var SearchResult=React.createClass({
 		hit:PT.number.isRequired
 	}
 	,render:function() {
-		return <DropdownButton pullRight title={[E(Glyphicon,{glyph:'search'}),this.props.hit]}>
-			<MenuItem>xxx</MenuItem>
-			<MenuItem>xxx</MenuItem>
-			<MenuItem>xxx</MenuItem>
+		return <DropdownButton pullRight title={[E(Glyphicon,{key:1,glyph:'search'}),E("span",{key:2},this.props.hit)]}>
+			<MenuItem key="1">xxx</MenuItem>
+			<MenuItem key="2">xxx</MenuItem>
+			<MenuItem key="3">xxx</MenuItem>
 		</DropdownButton>
 	}
 });

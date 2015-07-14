@@ -11,7 +11,7 @@ var TextPanel=React.createClass({
 		 return E(Panel,{
 		 	collapsible:true
 		 	,defaultExpanded:true
-		 	,header:E(TextPanelHeader,{column:this.props.column},this.props.title)
+		 	,header:E(TextPanelHeader,{column:this.props.column,id:this.props.id},this.props.title)
 		 	,eventKey:this.props.key
 		 },this.props.content);
 	}
