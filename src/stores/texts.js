@@ -6,7 +6,7 @@ var Texts=Reflux.createStore({
 	,texts:[]
 	,find:function(texts,id) {
 		for (var i=0;i<texts.length;i++) {
-			if (this.texts[i].id==id) return i;
+			if (texts[i].id==id) return i;
 		}
 		return -1;
 	}
@@ -40,8 +40,9 @@ var Texts=Reflux.createStore({
 		var idx=this.find(this.texts,id);
 		if (idx==-1) return;
 		//split texts to 2 arrays
-		var bothside=this.splitAndSortTexts();
 		var panel=this.texts[idx];
+
+		var bothside=this.splitAndSortTexts();
 		var from=bothside[0], to=bothside[1];
 		if (panel.column=="right") {
 			from=bothside[1];
@@ -51,8 +52,9 @@ var Texts=Reflux.createStore({
 		var idx=this.find(from,id);
 
 		from.splice(idx,1);
-		panel.column=panel.column=="right"?"left":"right";
+		panel.column=(panel.column=="right")?"left":"right";
 		to.splice(idx,0,panel);
+		this.texts=from.concat(to);
 		this.trigger(this.texts,id);
 	}
 	,onMoveup:function(id) {
