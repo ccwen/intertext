@@ -30,7 +30,8 @@ var TextPanelHeader=React.createClass({
       <MenuItem key="2" eventKey='swap'><Glyphicon glyph={"arrow-"+this.otherside()}/>Move {this.Otherside()}</MenuItem>
       <MenuItem key="3" eventKey='movedown'><Glyphicon glyph="arrow-down"/>Move Down</MenuItem>
       <MenuItem key="4" divider />
-      <MenuItem key="5" eventKey='4'>Separated link</MenuItem>
+      <MenuItem key="5" eventKey='4'><Glyphicon glyph="arrow-up"/><Glyphicon glyph="remove"/>close all above</MenuItem>
+      <MenuItem key="6" eventKey='5'><Glyphicon glyph="arrow-down"/><Glyphicon glyph="remove"/>close all below</MenuItem>
     </DropdownButton>
 		<Button bsStyle='link'>{E(Glyphicon,{glyph:'remove'})}</Button>
 		</span>
