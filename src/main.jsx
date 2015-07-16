@@ -19,8 +19,8 @@ var maincomponent = React.createClass({
     return <div>
       <MainMenu/>
       <MarkupMenu/>
-      <Col md={6}><Texts id="left"/></Col>
-      <Col md={6}><Texts id="right"/></Col>
+      <Col md={4}><Texts id="left"/></Col>
+      <Col md={8}><Texts id="right"/></Col>
     </div>;
   }
 });

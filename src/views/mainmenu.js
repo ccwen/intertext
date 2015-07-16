@@ -14,10 +14,10 @@ var MainMenu=React.createClass({
 	addText:function() {
 	}
 	,componentDidMount:function() {
-		actions_texts.add({column:"left",title:"t1",id:"t1",content:"xxx"});
-		actions_texts.add({column:"right",title:"t2",id:"t2",content:"yyy"});
-		actions_texts.add({column:"left",title:"t3",id:"t3",content:"xxx"});
-		actions_texts.add({column:"right",title:"t4",id:"t4",content:"yyy"});
+		actions_texts.add({column:"left",title:"法會因由",id:"t1",content:{db:"ds",uti:"1"}});
+		actions_texts.add({column:"right",title:"t2",id:"t2",content:{db:"ds",uti:"3"}});
+		// actions_texts.add({column:"left",title:"t3",id:"t3",content:{db:"ds",uti:"10"}});
+		// actions_texts.add({column:"right",title:"t4",id:"t4",content:{db:"ds",uti:"3"}});
 
 	}
 	,render:function() {

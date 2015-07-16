@@ -23,7 +23,7 @@ var TextPanelHeader=React.createClass({
 	,render:function(){
 		return <div>
 		{this.props.children}
-
+		{this.props.active?<span> ACTIVE</span>:null}
 		<span className="pull-right">
 		<DropdownButton onSelect={this.onMenuSelect} pullRight bsStyle='link' title={E(Glyphicon,{glyph:'option-horizontal'})} noCaret>
       <MenuItem key="1" eventKey='moveup'><Glyphicon glyph="arrow-up"/>Move Up</MenuItem>

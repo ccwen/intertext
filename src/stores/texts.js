@@ -11,6 +11,12 @@ var Texts=Reflux.createStore({
 		}
 		return -1;
 	}
+	,get:function(id) {
+		var idx=this.find(this.texts_right,id);
+		if (idx>-1) return this.texts_right[idx]
+		var idx=this.find(this.texts_left,id);
+		if (idx>-1) return this.texts_left[idx]
+	}
 	,add_replace:function(trait) {
 		var i=this.find(this.texts_right,trait.id);
 		if (i>-1) this.texts_right.splice(i,1);
@@ -99,7 +105,15 @@ var Texts=Reflux.createStore({
 
 		this.triggerall(id);
 	}
+	,onActivate:function(id) {
+		this.texts_right.forEach(function(text){text.active=false});
+		this.texts_left.forEach(function(text){text.active=false});
+		var panel=this.get(id);
+		if (panel) panel.active=true;
+		this.triggerall(id);
+	}
 	,triggerall:function(id) {
+
 		this.trigger(this.texts_right.concat(this.texts_left),id);
 	}
 })
