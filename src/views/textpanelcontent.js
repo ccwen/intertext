@@ -6,9 +6,10 @@ var PT=React.PropTypes;
 var KsanaText=require("./ksanatext");
 var ksa=require("ksana-simple-api");
 
+/* fetch text from ksana database */
+
 var TextPanelContent=React.createClass({
-	mixins:[React.addons.PureRender]
-	,fetchtext:function(opts) {
+	fetchtext:function(opts) {
 		console.log("fetch",opts.uti)
 		ksa.fetch(opts,function(err,data){
 			if (!err) this.setState({text:data[0].text,hits:data[0].hits});

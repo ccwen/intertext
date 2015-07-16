@@ -1,3 +1,6 @@
+/*
+	pure component to display markupable rich text
+*/
 var React=require("react/addons");
 var Panel=require("react-bootstrap").Panel;
 var E=React.createElement;
@@ -9,16 +12,19 @@ var KsanaLayerReact=require("ksana-layer-react");
 var InterlineView=KsanaLayerReact.InterlineView;
 
 
-/*
-	,editorReceiveFocus:function(e) {
-		action.activate(this.props.id);
-	}
-
-*/
 var KsanaText=React.createClass({
 	mixins:[React.addons.PureRender]
-	,hit2markup:function(hits) {
+	,propTypes:{
+		hits:PT.array
+		,markups:PT.string
+		,text:PT.string.isRequired
+		,id:PT.string.isRequired
+	}
+	,appendHitToMarkup:function(hits) { //interlineview markups is in Object format
 		var markups={};
+		if (this.props.markups) {
+			for (var key in this.props.markups) markups[key]=this.props.markups[key];
+		}
 		for (var i=0;i<hits.length;i++) {
 			markups[Math.random()]=hits[i];
 		}
@@ -28,9 +34,9 @@ var KsanaText=React.createClass({
 		action.activate(this.props.id);
 	}
 	,render:function(){
-		var markups=this.hit2markup(this.props.hits);
-		return <InterlineView text={this.props.text} markups={markups}
-		onFocus={this.onFocus} onBlur={this.onBlur}/>
+		var markups=this.appendHitToMarkup(this.props.hits);
+		return E(InterlineView,{text:this.props.text, markups:markups
+		,onFocus:this.onFocus,onBlur:this.onBlur});
 	}
 })
 module.exports=KsanaText;

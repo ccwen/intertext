@@ -4,11 +4,9 @@ var E=React.createElement;
 var PT=React.PropTypes;
 var TextPanelHeader=require("./textpanelheader");
 var TextPanelContent=require("./textpanelcontent");
-var action=require("../actions/texts");
 
 var TextPanel=React.createClass({
 	mixins:[React.PureRenderer]
-
 	,render:function() {
 		 return E(Panel,{
 		 	collapsible:true
