@@ -33,10 +33,14 @@ var KsanaText=React.createClass({
 	,onFocus:function() {
 		action.activate(this.props.id);
 	}
+	,onSelectText:function() {
+		console.log(arguments)
+	}
 	,render:function(){
 		var markups=this.appendHitToMarkup(this.props.hits);
 		return E(InterlineView,{text:this.props.text, markups:markups
-		,onFocus:this.onFocus,onBlur:this.onBlur});
+		,onFocus:this.onFocus,onBlur:this.onBlur,
+		onSelectText:this.onSelectText});
 	}
 })
 module.exports=KsanaText;

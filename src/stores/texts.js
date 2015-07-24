@@ -3,8 +3,7 @@ var actions=require("../actions/texts");
 var MAXPANEL=10;
 var Texts=Reflux.createStore({
 	listenables:actions
-	,texts_right:[]
-	,texts_left:[]
+	,texts_right:[]	,texts_left:[]
 	,find:function(texts,id) {
 		for (var i=0;i<texts.length;i++) {
 			if (texts[i].id==id) return i;
